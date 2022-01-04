@@ -71,7 +71,7 @@
 
     async function getFriendship() {
       const friend = await liff.getFriendship()
-      document.getElementById("friendship").append(friend.friendFlag)
+      document.getElementById("friendship").append(friend.friendFlag ? "true" : "false")
       if(!friend.friendFlag){
         if(confirm("เพิ่มเพื่อนกับแชทบอท")){
           // window.location = "" รีไดเรกไปไลน์แชทบอท
@@ -131,7 +131,7 @@
     async function main() {
       // alert("LINE Developers x Skooldio")
       await liff.init({ liffId: "1656769030-Z7qP92LY" })
-      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn() ? "true" : "false")
       if(liff.isLoggedIn()){
         getEnvironment()
         getUserProfile()
