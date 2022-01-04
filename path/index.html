@@ -20,5 +20,26 @@
     const params = new URLSearchParams(queryString);
     document.getElementById("param").append(params.get("param"));
   </script>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+    async function main() {
+      await liff.init({ liffId: "1656769030-Z7qP92LY" })
+      if(liff.isLoggedIn()){
+        getUserProfile()
+      }else{
+        liff.login({ redirectUri: "https://pramotesupnoi.github.io/liff-tutorial/path" })
+      }
+    }
+
+    async function getUserProfile() {
+      const profile = await liff.getProfile()
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+    }
+  </script>
 </body>
 </html>
