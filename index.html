@@ -77,6 +77,7 @@
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
@@ -99,6 +100,7 @@
       await liff.init({ liffId: "1656769030-Z7qP92LY" })
       getEnvironment()
       getUserProfile()
+      
       // getContext()
       // getFriendship()
       // createUniversalLink()
